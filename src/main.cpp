@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
+8// Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2011 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
@@ -82,7 +82,7 @@ void RegisterWallet(CWallet* pwalletIn)
 {
     CRITICAL_BLOCK(cs_setpwalletRegistered)
     {
-        setpwalletRegistered.insert(pwalletIn);
+        setpwalletRegistered.insert(pwalletIn);38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
     }
 }
 
@@ -90,7 +90,7 @@ void UnregisterWallet(CWallet* pwalletIn)
 {
     CRITICAL_BLOCK(cs_setpwalletRegistered)
     {
-        setpwalletRegistered.erase(pwalletIn);
+        setpwalletRegistered.erase(pwalletIn);38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
     }
 }
 
@@ -130,35 +130,35 @@ void static SyncWithWallets(const CTransaction& tx, const CBlock* pblock = NULL,
 void static SetBestChain(const CBlockLocator& loc)
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->SetBestChain(loc);
+        pwallet->SetBestChain(loc);38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 // notify wallets about an updated transaction
 void static UpdatedTransaction(const uint256& hashTx)
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->UpdatedTransaction(hashTx);
+        pwallet->UpdatedTransaction(hashTx);38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 // dump all wallets
 void static PrintWallets(const CBlock& block)
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->PrintWallet(block);
+        pwallet->PrintWallet(block);38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 // notify wallets about an incoming inventory (for request counts)
 void static Inventory(const uint256& hash)
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->Inventory(hash);
+        pwallet->Inventory(hash);38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 // ask wallets to resend their transactions
 void static ResendWalletTransactions()
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
-        pwallet->ResendWalletTransactions();
+        pwallet->ResendWalletTransactions();38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 
@@ -549,7 +549,7 @@ bool CTransaction::AcceptToMemoryPool(CTxDB& txdb, bool fCheckInputs, bool* pfMi
         EraseFromWallets(ptxOld->GetHash());
 
     printf("AcceptToMemoryPool(): accepted %s\n", hash.ToString().substr(0,10).c_str());
-    return true;
+    return true;38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 bool CTransaction::AcceptToMemoryPool(bool fCheckInputs, bool* pfMissingInputs)
@@ -570,7 +570,7 @@ bool CTransaction::AddToMemoryPoolUnchecked()
             mapNextTx[vin[i].prevout] = CInPoint(&mapTransactions[hash], i);
         nTransactionsUpdated++;
     }
-    return true;
+    return true;38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 
@@ -584,7 +584,7 @@ bool CTransaction::RemoveFromMemoryPool()
         mapTransactions.erase(GetHash());
         nTransactionsUpdated++;
     }
-    return true;
+    return true;38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 
@@ -946,7 +946,7 @@ bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTes
                 return error("FetchInputs() : %s ReadFromDisk prev tx %s failed", GetHash().ToString().substr(0,10).c_str(),  prevout.hash.ToString().substr(0,10).c_str());
         }
     }
-    return true;
+    return true;38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 bool CTransaction::ConnectInputs(map<uint256, pair<CTxIndex, CTransaction> > inputs,
@@ -1048,7 +1048,7 @@ bool CTransaction::ConnectInputs(map<uint256, pair<CTxIndex, CTransaction> > inp
         mapTestPool[GetHash()] = CTxIndex(CDiskTxPos(1,1,1), vout.size());
     }
 
-    return true;
+    return true;38Hwi3PaxEKo1WocoV9N3T4FrAcFK46Xd1
 }
 
 
